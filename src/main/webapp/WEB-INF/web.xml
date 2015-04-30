@@ -4,7 +4,7 @@
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>ch.bochenek.memory.Greetings</param-value>
+            <param-value>ch.bochenek.memory.Greetings,ch.bochenek.memory.LibraryAPI</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>

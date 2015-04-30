@@ -1,0 +1,104 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://copper-bot-93117.appspot.com/_ah/api",
+  "name" : "library",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://copper-bot-93117.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "library.libraryAPI.get" : {
+      "path" : "library/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ "copper-bot-93117" ],
+      "clientIds" : [ "copper-bot-93117", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "ch.bochenek.memory.LibraryAPI.get",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Library" : {
+        "id" : "Library",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "shared" : {
+            "type" : "boolean"
+          },
+          "deleted" : {
+            "type" : "boolean"
+          },
+          "lastUpdate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "images" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Image"
+            }
+          }
+        }
+      },
+      "Image" : {
+        "id" : "Image",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "data" : {
+            "type" : "string",
+            "format" : "byte"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "ch.bochenek.memory.LibraryAPI.get" : {
+        "response" : {
+          "$ref" : "Library"
+        }
+      }
+    }
+  }
+}
