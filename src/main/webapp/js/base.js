@@ -24,7 +24,7 @@ google.devrel.samples.hello = google.devrel.samples.hello || {};
  * @type {string}
  */
 google.devrel.samples.hello.CLIENT_ID =
-    'copper-bot-93117';
+    '405662418613-lut0dl4c1vt57otleqpq0vfucafl7vc2.apps.googleusercontent.com';
 
 /**
  * Scopes used by the application.
