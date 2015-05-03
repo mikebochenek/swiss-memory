@@ -24,21 +24,6 @@
     "maxAge" : 0
   },
   "methods" : {
-    "helloworld.greetings.listGreeting" : {
-      "path" : "hellogreeting",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ "copper-bot-93117" ],
-      "clientIds" : [ "copper-bot-93117", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "ch.bochenek.memory.Greetings.listGreeting",
-      "request" : {
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "helloworld.greetings.authed" : {
       "path" : "hellogreeting/authed",
       "httpMethod" : "POST",
@@ -47,6 +32,42 @@
       "audiences" : [ "copper-bot-93117" ],
       "clientIds" : [ "copper-bot-93117", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
       "rosyMethod" : "ch.bochenek.memory.Greetings.authedGreeting",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "helloworld.greetings.getGreeting" : {
+      "path" : "hellogreeting/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ "copper-bot-93117" ],
+      "clientIds" : [ "copper-bot-93117", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "ch.bochenek.memory.Greetings.getGreeting",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int32",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "helloworld.greetings.listGreeting" : {
+      "path" : "hellogreeting",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ "copper-bot-93117" ],
+      "clientIds" : [ "copper-bot-93117", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "ch.bochenek.memory.Greetings.listGreeting",
       "request" : {
         "body" : "empty"
       },
@@ -71,27 +92,6 @@
         },
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "helloworld.greetings.getGreeting" : {
-      "path" : "hellogreeting/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ "copper-bot-93117" ],
-      "clientIds" : [ "copper-bot-93117", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "ch.bochenek.memory.Greetings.getGreeting",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int32",
-            "required" : true
-          }
-        },
-        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -123,25 +123,25 @@
       }
     },
     "methods" : {
-      "ch.bochenek.memory.Greetings.listGreeting" : {
-        "response" : {
-          "$ref" : "HelloGreetingCollection"
-        }
-      },
       "ch.bochenek.memory.Greetings.authedGreeting" : {
         "response" : {
           "$ref" : "HelloGreeting"
+        }
+      },
+      "ch.bochenek.memory.Greetings.getGreeting" : {
+        "response" : {
+          "$ref" : "HelloGreeting"
+        }
+      },
+      "ch.bochenek.memory.Greetings.listGreeting" : {
+        "response" : {
+          "$ref" : "HelloGreetingCollection"
         }
       },
       "ch.bochenek.memory.Greetings.insertGreeting" : {
         "request" : {
           "$ref" : "HelloGreeting"
         },
-        "response" : {
-          "$ref" : "HelloGreeting"
-        }
-      },
-      "ch.bochenek.memory.Greetings.getGreeting" : {
         "response" : {
           "$ref" : "HelloGreeting"
         }
